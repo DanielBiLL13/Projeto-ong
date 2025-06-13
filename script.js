@@ -15,3 +15,14 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }, 3000);
 });
+// Função para alternar entre páginas
+function showPage(pageId) {
+    document.querySelectorAll('.page').forEach(page => {
+        page.classList.remove('active');
+    });
+    document.getElementById(pageId).classList.add('active');
+    
+    if (pageId === 'visualizacaoPage') {
+        displayNeeds(needs);
+    }
+}
