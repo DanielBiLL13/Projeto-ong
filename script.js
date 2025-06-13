@@ -176,3 +176,15 @@ function deleteNeed(index) {
         });
     }
 }
+// Função para mostrar notificação (NOVA)
+function showToast(message) {
+    const toast = document.createElement('div');
+    toast.className = 'toast-notification';
+    toast.textContent = message;
+    document.body.appendChild(toast);
+    
+    setTimeout(() => {
+        toast.classList.add('fade-out');
+        toast.addEventListener('animationend', () => toast.remove());
+    }, 3000);
+}
