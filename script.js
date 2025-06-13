@@ -26,3 +26,29 @@ function showPage(pageId) {
         displayNeeds(needs);
     }
 }
+// Validação do formulário de cadastro
+document.getElementById('needForm')?.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    if (validateForm()) {
+        const formData = {
+            institutionName: document.getElementById('institutionName').value,
+            helpType: document.getElementById('helpType').value,
+            needTitle: document.getElementById('needTitle').value,
+            needDescription: document.getElementById('needDescription').value,
+            cep: document.getElementById('cep').value,
+            street: document.getElementById('street').value,
+            neighborhood: document.getElementById('neighborhood').value,
+            city: document.getElementById('city').value,
+            state: document.getElementById('state').value,
+            contact: document.getElementById('contact').value,
+            createdAt: new Date().toISOString()
+        };
+        
+        needs.push(formData);
+        localStorage.setItem('needs', JSON.stringify(needs));
+        alert('Necessidade cadastrada com sucesso!');
+        this.reset();
+        showPage('visualizacaoPage');
+    }
+});
