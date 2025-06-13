@@ -19,6 +19,7 @@ body {
     color: var(--dark-color);
     background-color: var(--light-color);
 }
+
 /* ============ NOVOS ESTILOS PARA TRANSIÇÃO ============ */
 #loadingPage {
     position: fixed;
@@ -52,6 +53,7 @@ body {
     opacity: 1;
     display: block;
 }
+
 /* Estilo da página de carregamento */
 .loading-container {
     text-align: center;
@@ -101,6 +103,7 @@ body {
     50% { opacity: 1; transform: scale(1.05); }
     100% { opacity: 0.8; transform: scale(0.95); }
 }
+
 /* Estilos gerais */
 .container {
     width: 90%;
@@ -183,6 +186,7 @@ body {
     background-color: #f0f0f0;
     transform: translateY(-2px);
 }
+
 /* Estilo específico para o botão de voltar na visualização */
 .back-button {
     margin-bottom: 1.5rem;
@@ -219,6 +223,7 @@ body {
     padding: 1.5rem 0;
     margin-top: 3rem;
 }
+
 /* Estilos para a página de visualização */
 .filters-container {
     display: flex;
@@ -350,6 +355,7 @@ body {
     padding: 2rem;
     color: #666;
 }
+
 /* Estilos para o formulário */
 .form-container {
     max-width: 800px;
@@ -409,6 +415,7 @@ body {
     gap: 1rem;
     margin-top: 2rem;
 }
+
 /* Responsividade */
 @media (max-width: 768px) {
     .address-fields {
@@ -437,6 +444,7 @@ body {
         text-align: center;
     }
 }
+
 /* ============ NOVOS ESTILOS ADICIONADOS ============ */
 
 /* Botão de exclusão */
@@ -452,9 +460,11 @@ body {
     transition: background-color 0.3s;
     align-self: flex-start;
 }
+
 .delete-btn:hover {
     background-color: #c0392b;
 }
+
 /* Animação para remoção do card */
 @keyframes fadeOutSlide {
     0% {
@@ -477,6 +487,7 @@ body {
     animation: fadeOutSlide 0.4s ease-out forwards;
     overflow: hidden;
 }
+
 /* Notificação toast */
 .toast-notification {
     position: fixed;
