@@ -82,3 +82,17 @@ document.getElementById('cep')?.addEventListener('blur', function() {
             });
     }
 });
+// Filtros e busca
+document.getElementById('searchButton')?.addEventListener('click', function() {
+    filterNeeds();
+});
+
+document.getElementById('searchInput')?.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        filterNeeds();
+    }
+});
+
+document.getElementById('filterType')?.addEventListener('change', function() {
+    filterNeeds();
+});
