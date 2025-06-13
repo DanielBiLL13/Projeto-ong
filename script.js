@@ -113,3 +113,42 @@ function filterNeeds() {
     
     displayNeeds(filteredNeeds);
 }
+// Função para exibir as necessidades (ATUALIZADA)
+function displayNeeds(needsToDisplay) {
+    const needsContainer = document.getElementById('needsContainer');
+    needsContainer.innerHTML = '';
+    
+    if (!needsToDisplay || needsToDisplay.length === 0) {
+        needsContainer.innerHTML = '<p class="no-results">Nenhuma necessidade encontrada.</p>';
+        return;
+    }
+    
+    needsToDisplay.forEach((need, index) => {
+        const needCard = document.createElement('div');
+        needCard.className = 'need-card';
+        
+        const formattedDate = new Date(need.createdAt).toLocaleDateString('pt-BR');
+        const typeClass = need.helpType.toLowerCase().replace(/\s+/g, '-');
+        
+        needCard.innerHTML = `
+            <h3>${need.needTitle}</h3>
+            <div class="need-meta">
+                <span class="institution">${need.institutionName}</span>
+                <span class="type ${typeClass}">${need.helpType}</span>
+            </div>
+            <p class="description">${need.needDescription}</p>
+            <div class="need-footer">
+                <div class="location">
+                    <span>${need.city} - ${need.state}</span>
+                    <span>${need.neighborhood}</span>
+                </div>
+                <div class="contact">
+                    <span>Contato: ${need.contact}</span>
+                </div>
+            </div>
+            <div class="need-date">Cadastrado em: ${formattedDate}</div>
+            <button class="delete-btn" data-index="${index}">Excluir Necessidade</button>
+        `;
+        
+        needsContainer.appendChild(needCard);
+    });
