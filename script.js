@@ -96,3 +96,20 @@ document.getElementById('searchInput')?.addEventListener('keypress', function(e)
 document.getElementById('filterType')?.addEventListener('change', function() {
     filterNeeds();
 });
+// Função para filtrar as necessidades
+function filterNeeds() {
+    const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+    const selectedType = document.getElementById('filterType').value;
+    
+    const filteredNeeds = needs.filter(need => {
+        const matchesSearch = 
+            need.needTitle.toLowerCase().includes(searchTerm) || 
+            need.needDescription.toLowerCase().includes(searchTerm);
+        
+        const matchesType = selectedType ? need.helpType === selectedType : true;
+        
+        return matchesSearch && matchesType;
+    });
+    
+    displayNeeds(filteredNeeds);
+}
