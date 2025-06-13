@@ -52,3 +52,10 @@ document.getElementById('needForm')?.addEventListener('submit', function(e) {
         showPage('visualizacaoPage');
     }
 });
+// Validação do formulário
+function validateForm() {
+    let isValid = true;
+
+    
+    return isValid;
+}
