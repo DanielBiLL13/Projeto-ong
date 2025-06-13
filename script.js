@@ -152,3 +152,11 @@ function displayNeeds(needsToDisplay) {
         
         needsContainer.appendChild(needCard);
     });
+}
+// Adiciona event listeners para os botões de exclusão
+    document.querySelectorAll('.delete-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            const index = parseInt(this.getAttribute('data-index'));
+            deleteNeed(index);
+        });
+    });
