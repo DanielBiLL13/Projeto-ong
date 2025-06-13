@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }, 3000);
 });
+
 // Função para alternar entre páginas
 function showPage(pageId) {
     document.querySelectorAll('.page').forEach(page => {
@@ -26,6 +27,7 @@ function showPage(pageId) {
         displayNeeds(needs);
     }
 }
+
 // Validação do formulário de cadastro
 document.getElementById('needForm')?.addEventListener('submit', function(e) {
     e.preventDefault();
@@ -52,6 +54,7 @@ document.getElementById('needForm')?.addEventListener('submit', function(e) {
         showPage('visualizacaoPage');
     }
 });
+
 // Validação do formulário
 function validateForm() {
     let isValid = true;
@@ -59,6 +62,7 @@ function validateForm() {
     
     return isValid;
 }
+
 // Integração com ViaCEP
 document.getElementById('cep')?.addEventListener('blur', function() {
     const cep = this.value.replace(/\D/g, '');
@@ -82,6 +86,7 @@ document.getElementById('cep')?.addEventListener('blur', function() {
             });
     }
 });
+
 // Filtros e busca
 document.getElementById('searchButton')?.addEventListener('click', function() {
     filterNeeds();
@@ -96,6 +101,7 @@ document.getElementById('searchInput')?.addEventListener('keypress', function(e)
 document.getElementById('filterType')?.addEventListener('change', function() {
     filterNeeds();
 });
+
 // Função para filtrar as necessidades
 function filterNeeds() {
     const searchTerm = document.getElementById('searchInput').value.toLowerCase();
@@ -113,6 +119,9 @@ function filterNeeds() {
     
     displayNeeds(filteredNeeds);
 }
+
+// ============ FUNÇÕES NOVAS OU MODIFICADAS ============
+
 // Função para exibir as necessidades (ATUALIZADA)
 function displayNeeds(needsToDisplay) {
     const needsContainer = document.getElementById('needsContainer');
@@ -152,14 +161,16 @@ function displayNeeds(needsToDisplay) {
         
         needsContainer.appendChild(needCard);
     });
-}
-// Adiciona event listeners para os botões de exclusão
+
+    // Adiciona event listeners para os botões de exclusão
     document.querySelectorAll('.delete-btn').forEach(button => {
         button.addEventListener('click', function() {
             const index = parseInt(this.getAttribute('data-index'));
             deleteNeed(index);
         });
     });
+}
+
 // Função para excluir uma necessidade (NOVA)
 function deleteNeed(index) {
     if (confirm('Tem certeza que deseja excluir esta necessidade?')) {
@@ -176,6 +187,7 @@ function deleteNeed(index) {
         });
     }
 }
+
 // Função para mostrar notificação (NOVA)
 function showToast(message) {
     const toast = document.createElement('div');
