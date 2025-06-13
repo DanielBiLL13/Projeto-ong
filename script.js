@@ -160,3 +160,19 @@ function displayNeeds(needsToDisplay) {
             deleteNeed(index);
         });
     });
+// Função para excluir uma necessidade (NOVA)
+function deleteNeed(index) {
+    if (confirm('Tem certeza que deseja excluir esta necessidade?')) {
+        const cards = document.querySelectorAll('.need-card');
+        const cardToRemove = cards[index];
+        
+        cardToRemove.classList.add('removing');
+        
+        cardToRemove.addEventListener('animationend', function() {
+            needs.splice(index, 1);
+            localStorage.setItem('needs', JSON.stringify(needs));
+            displayNeeds(needs);
+            showToast('Necessidade removida com sucesso!');
+        });
+    }
+}
